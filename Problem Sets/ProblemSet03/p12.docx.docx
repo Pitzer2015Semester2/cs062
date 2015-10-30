@@ -1,0 +1,54 @@
+Collin Blinder
+cblinder@students.pitzer.edu
+Problem 1:
+	1.
+f01: THETA (1)
+
+f02: THETA(n)
+
+f03: THETA(n^2)
+
+f04: THETA(n)
+
+f05: THETA(n^3)
+
+f06: THETA(n^3)
+
+f07: THETA(n^2)
+
+f08: THETA(log base 2 (n))
+
+f09: THETA(log base 2(n))
+
+f10: THETA(log base 10(n))
+2.
+   “Yes I did it”
+   
+Problem 2:
+Counting Technique:
+
+f01:
+
+OperationTimes ExecutedTotalSum = 01i=01I<10001001I++1000Sum++10003003 = THETA(1)
+
+ f02:
+OperationTimes ExecutedTotalSum = 01I = 01I < nN+1I++nSum++n3n+3 = THETA(n)
+
+
+
+
+
+
+
+
+
+f03:
+OperationTimes ExecutedTotalSum = 01I = 01I < nN+1I++nJ = 01J<nN+1J++nSum++n1+1+N+1+n+1+n+1+n+n=
+5+5n = THETA(n)
+
+
+ f04:
+OperationTimes ExecutedTotalSum = 01I = 01I < nN+1I++nSum++nSum = 01j = 0nj < nN2+1j++N2Sum++N21+n+n+1+n+n+1+1+1+n2+n2+n2 = 5+4n+3n2 = THETA(n2)
+
+f08:
+OperationTimes ExecutedTotalSum = 01i=11I<nLog(n)I++Log(n)Sum++Log(n)1+1+ Log(n)+ Log(n)+ Log(n) = 2+3 Log(n) = THETA(Log(n))
