@@ -42,8 +42,9 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
             SNode<E> temp = new SNode<E>(e);
             temp.next = tail;
             tail = temp;
-            return true;
         }
+
+        return true;
     }
   
   
@@ -79,14 +80,14 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      */
     public boolean contains (Object element) {
         if (element == null) {
-            for (SNode<E> curr = head; curr != null; curr = curr.next) {
+            for (SNode<E> curr = tail; curr != null; curr = curr.next) {
                 if (curr.element == null) {
                     return true;
                 }
             }
         } 
         else {  
-            for (SNode<E> curr = head; curr != null; curr = curr.next) {
+            for (SNode<E> curr = tail; curr != null; curr = curr.next) {
                 if (element.equals(curr.element)) {
                     return true;
                 }
@@ -158,11 +159,11 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
             return false;
         }
         else if (head.element == o) { // first node?
-            head = head.next;         // Note that == is used here
+            tail = head.next;         // Note that == is used here
             return true;
         }
         else {  // what we want to remove may be in the rest of the list
-            for (SNode curr = head; curr.next != null; curr = curr.next) {
+            for (SNode curr = tail; curr.next != null; curr = curr.next) {
                 if (curr.next.element == o) {
                     curr.next = curr.next.next;
                     return true;
@@ -202,7 +203,7 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
   
     public String toString() {
         String toReturn = "";
-        for (SNode curr = head; curr != null; curr = curr.next) {
+        for (SNode curr = tail; curr != null; curr = curr.next) {
             toReturn = toReturn + " " + curr.element;
         }
         return toReturn;
