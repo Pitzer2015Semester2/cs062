@@ -10,12 +10,14 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
 
     // Just keep track of the head to keep things simple
     private SNode<E> head;
+    private SNode<E> tail;
   
     /**
      * Initializes this SLL object to be empty, with elements to be of type E.
      */
     public SLL() {
         head = null;
+        tail = null;
     }
     
     /**
@@ -24,7 +26,7 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      *  @return true -  if this SLL object has no elements; otherwise, false.  
      */
     public boolean isEmpty () {
-        return head == null;
+        return tail == null; //CB I altered this 
     }
   
   
@@ -34,10 +36,14 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      *  @return true.
      */
     public boolean add (E e) {
-        SNode<E> temp = new SNode<E>(e);
-        temp.next = head;
-        head = temp;
-        return true;
+        if(head == null){
+            head = new SNode<E>(e);
+        }else{
+            SNode<E> temp = new SNode<E>(e);
+            temp.next = tail;
+            tail = temp;
+            return true;
+        }
     }
   
   

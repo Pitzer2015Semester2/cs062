@@ -36,10 +36,14 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      *  @return true.
      */
     public boolean add (E e) {
-        SNode<E> temp = new SNode<E>(e);
-        temp.next = head;
-        head = temp;
-        return true;
+        if(head == null){
+            head = new SNode<E>(e);
+        }else{
+            SNode<E> temp = new SNode<E>(e);
+            temp.next = tail;
+            tail = temp;
+            return true;
+        }
     }
   
   
