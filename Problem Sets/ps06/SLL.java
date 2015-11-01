@@ -38,9 +38,16 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
     public boolean add (E e) {
         if(head == null){
             head = new SNode<E>(e);
-        }else{
+            head.next = tail;
+        }else if(head.next == null){
+            SNode<E> temp= new SNode<E>(e);
+           
+            head.next = temp;
+            tail = head.next;
+
+        } else{
             SNode<E> temp = new SNode<E>(e);
-            temp.next = tail;
+            tail.next = temp;
             tail = temp;
         }
 
@@ -61,6 +68,7 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      *  The worstTime(n) is O(n).
      *  @return the number of elements.
      */
+    
     public int size() {
         int count = 0;
         for (SNode<E> curr = head; curr != null; curr = curr.next) {
@@ -80,14 +88,14 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      */
     public boolean contains (Object element) {
         if (element == null) {
-            for (SNode<E> curr = tail; curr != null; curr = curr.next) {
+            for (SNode<E> curr = head; curr != null; curr = curr.next) {
                 if (curr.element == null) {
                     return true;
                 }
             }
         } 
         else {  
-            for (SNode<E> curr = tail; curr != null; curr = curr.next) {
+            for (SNode<E> curr = head; curr != null; curr = curr.next) {
                 if (element.equals(curr.element)) {
                     return true;
                 }
@@ -159,13 +167,22 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
             return false;
         }
         else if (head.element == o) { // first node?
-            tail = head.next;         // Note that == is used here
+            // SNode tempElement = head.element;
+            // new SNode<E>(o);
+            head = head.next;  
+            // tempElement.next = null;
+                   // Note that == is used here
             return true;
-        }
-        else {  // what we want to remove may be in the rest of the list
-            for (SNode curr = tail; curr.next != null; curr = curr.next) {
+        } else {  // what we want to remove may be in the rest of the list
+            for (SNode curr = head; curr.next != null; curr = curr.next) {
+                if(curr.next.element == o && curr.next.element == tail.element){
+                    tail = curr;
+                    // return true;
+                }
                 if (curr.next.element == o) {
+                    SNode temp = curr.next;
                     curr.next = curr.next.next;
+                    temp.next = null;
                     return true;
                 }
             }
@@ -203,7 +220,7 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
   
     public String toString() {
         String toReturn = "";
-        for (SNode curr = tail; curr != null; curr = curr.next) {
+        for (SNode curr = head; curr != null; curr = curr.next) {
             toReturn = toReturn + " " + curr.element;
         }
         return toReturn;
