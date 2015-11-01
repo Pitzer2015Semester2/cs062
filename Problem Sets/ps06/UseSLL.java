@@ -18,6 +18,7 @@ public class UseSLL {
         words.add(word1);
 
         System.out.println("List 1 : " + words);
+        System.out.println("Size "+words.size());
         System.out.println("contains before: " + words.contains(word1));
         words.remove(word1);  // remove Apple
         System.out.println("contains after: " + words.contains(word1));
@@ -27,12 +28,14 @@ public class UseSLL {
 
         words.remove(word3);  // remove Kiwi
         System.out.println("List 3 : " + words);
+        System.out.println("Size "+words.size());
 
         words.remove(word4);  // remove Orange
         System.out.println("List 4 : " + words);
 
         words.remove(word2);  // remove Pear
         System.out.println("List 5 : " + words);
+        System.out.println("Size "+words.size());
 
         words.remove(word4);  // remove Orange once more on empty list
         System.out.println("List 6 : " + words);

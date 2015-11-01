@@ -19,7 +19,7 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
         head = null;
         tail = null;
     }
-    
+
     /**
      *  Determines if this SLL object has no elements.
      *
@@ -69,12 +69,20 @@ public class SLL<E> extends AbstractCollection<E> implements List<E> {
      *  @return the number of elements.
      */
     
-    public int size() {
-        int count = 0;
-        for (SNode<E> curr = head; curr != null; curr = curr.next) {
-            count++;
+    public int size(){
+        return sizeAux(head);
+    }
+    private int sizeAux(SNode<E> curr) {
+        if(curr.next==null){
+            return 1;
+        }else{
+            return 1+sizeAux(curr.next);
         }
-        return count;
+        // int count = 0;
+        // for (SNode<E> curr = head; curr != null; curr = curr.next) {
+        //     count++;
+        // }
+        // return count;
     }
   
   
